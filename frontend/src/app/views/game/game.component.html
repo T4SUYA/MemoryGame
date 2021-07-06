@@ -1,0 +1,57 @@
+<main>
+  <div class="sound">
+    <button (click)="canPlayAudio = !canPlayAudio" mat-button mat-icon-button>
+      <mat-icon *ngIf="canPlayAudio">volume_up</mat-icon>
+      <mat-icon *ngIf="!canPlayAudio">volume_off</mat-icon>
+    </button>
+    <button class="fade-in" *ngIf="gameStatus > 1 && gameStatus < 5" (click)="showMainMenu()" mat-button
+      mat-icon-button>
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </div>
+  <div *ngIf="user" class="user-level fade-in">
+    <h4>User : {{user.name}}</h4>
+    <button (click)="logout()" class="fade-in" mat-button mat-icon-button>
+      <mat-icon> logout</mat-icon>
+    </button>
+  </div>
+  <app-lottie-player class="slide-in-fwd-center" width="300px" height="300px" *ngIf="gameStatus == 0"
+    src="/assets/animations/card-loading.json">
+  </app-lottie-player>
+  <app-playing-cards [canPlayEffects]="canPlayAudio" [gameLevel]="gameLevel" (onGameCompleted)="onGameCompleted()"
+    [models]="models" #cards class="fade-in" *ngIf="gameStatus == 2"></app-playing-cards>
+
+  <h1 class="start slide-in-fwd-center prog-pts" *ngIf="gameLevel == 4 && gameStatus > 1">Score:
+    {{progressiveModel.points}}</h1>
+  <app-timer *ngIf="gameStatus == 2 " (onTimerComplete)="onTimerCompleted()" class="fade-in" #timer>
+  </app-timer>
+
+  <div *ngIf="gameStatus == 1" class=" start  slide-in-fwd-center">
+    <span>Start Game</span>
+    <div class="dif-btns">
+      <button (click)="startGame(1)">Easy</button>
+      <button (click)="startGame(2)">Medium</button>
+      <button (click)="startGame(3)">Hard</button>
+      <button (click)="startGame(4)" class="btn-grad">Infinite</button>
+    </div>
+
+  </div>
+  <h1 *ngIf="gameStatus ==3 && gameLevel != 4" (click)="startGame(this.gameLevel)"
+    class="section-title slide-in-fwd-center">Game
+    Over, Try Again?</h1>
+
+  <div class="scores slide-in-fwd-center" *ngIf="gameStatus == 4 || gameLevel == 4 && gameStatus == 3">
+    <h1 class="start"><span>{{onGameEndMessage()}}</span> <span>Score: {{user.points}}</span> <span
+        (click)="showMainMenu()">Play
+        Again?</span></h1>
+    <div class="leadboard">
+      <div class="lead-title">Leadboard</div>
+      <div class="lead-item fade-in" *ngFor="let item of scores; index as i">
+        <span>{{i + 1}} - </span><span>{{item.user?.name}}</span> <span>{{item.score}}</span>
+      </div>
+    </div>
+  </div>
+
+
+  <h1 class="start slide-in-fwd-center" *ngIf="gameStatus == 5">Next Round will start...</h1>
+</main>

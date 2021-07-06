@@ -1,0 +1,61 @@
+<section class="forms-section">
+  <h1 class="section-title">Memory Game</h1>
+  <div class="forms">
+    <div class="form-wrapper" [ngClass]="{'is-active': isLoginActive}">
+      <button (click)="handleChangeTab(true)" type="button" class="switcher switcher-login">
+        Login
+        <span class="underline"></span>
+      </button>
+      <form [formGroup]="form" class="form form-login">
+        <mat-form-field appearance="outline">
+          <mat-label>Nickname</mat-label>
+          <input type="text" matInput formControlName="nickname" placeholder="Ex. T4TSUYA">
+          <mat-error *ngIf="form.controls.nickname.hasError('required')">
+            Nickname is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password">
+          <mat-error *ngIf="form.controls.password.hasError('required')">
+            Passoword is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <button (click)="isLoading ? null : login()" type="submit" class="base-btn btn-login"
+          [ngClass]="{'btn-loading': isLoading}">
+          <div class="fade-in" *ngIf="!isLoading">Login</div>
+          <mat-spinner [diameter]="25" class="mat-spinner-color fade-in" *ngIf="isLoading"></mat-spinner>
+        </button>
+      </form>
+    </div>
+    <div class="form-wrapper" [ngClass]="{'is-active': !isLoginActive}">
+      <button (click)="handleChangeTab(false)" type="button" class="switcher switcher-signup">
+        Sign Up
+        <span class="underline"></span>
+      </button>
+      <form class="form form-signup" [formGroup]="form">
+        <mat-form-field appearance="outline">
+          <mat-label>Nickname</mat-label>
+          <input type="text" matInput formControlName="nickname" placeholder="Tatsuya">
+
+          <mat-error *ngIf="form.controls.nickname.hasError('required')">
+            Nickname is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password">
+          <mat-error *ngIf="form.controls.password.hasError('required')">
+            Passoword is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <button [ngClass]="{'btn-loading': isLoading}" (click)="isLoading ? null : save()" type="submit"
+          class=" base-btn btn-signup">
+          <div class="fade-in" *ngIf="!isLoading">Sign up</div>
+          <mat-spinner [diameter]="25" class="mat-spinner-color fade-in" *ngIf="isLoading"></mat-spinner>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

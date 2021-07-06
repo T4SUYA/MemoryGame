@@ -1,0 +1,12 @@
+<main>
+  <h1 class="section-title fade-in">Memory Game</h1>
+  <div class="grid-container" [ngStyle]="getGrid()">
+    <div *ngFor="let model of models" class="card-wrapper flip-diagonal-right" (click)="onCardSwap(model.cardId)">
+      <div class="card"
+        [ngStyle]="{'transform': swap || model.flipped ? 'rotate3d(1, 1, 0, 180deg)' :'rotate3d(1, 1, 0, 0deg)'}">
+        <img style="transform: rotate3d(1, 1, 0, 180deg)" class="front" [src]="model.frontUrl" />
+        <div class="back"></div>
+      </div>
+    </div>
+  </div>
+</main>
