@@ -1,0 +1,43 @@
+<main class="backdrop fade-in" [ngClass]="{'fade-in-reverse': closing}">
+  <button (click)="onClose()" class="fade-in back-arrow " mat-button mat-icon-button>
+    <mat-icon>chevron_left</mat-icon>
+  </button>
+  <div *ngIf="!isLoading" class="wrapper fade-in">
+    <h1 [ngClass]="{'reverse-delayed': closing}">Leaderboard</h1>
+    <div class="top-3" [ngClass]="{'reverse-delayed': closing}" *ngIf="!isMobile">
+      <div *ngFor="let item of top3;  index as i" class="champ-card"
+        [ngClass]="{'gold': i == 1, 'silver': i == 2, 'bronze': i == 0}">
+        <ng-container *ngIf="item">
+          <div class="trophy"></div>
+          <div class="username">
+            {{item.user?.name}}
+          </div>
+          <div class="divider"></div>
+          <div class="score-top">
+            <div>{{item.score}}</div>
+            <div>points</div>
+          </div>
+        </ng-container>
+        <div class="empty" *ngIf="!item">
+          <div class="divider"></div>
+        </div>
+
+      </div>
+
+    </div>
+    <div *ngFor="let item of rest; index as i" class="rest" [ngClass]="{'reverse': closing, 'tilt-in': !closing}">
+      <div class="rest-score">
+        <div class="pl-user">
+          <div class="placement">
+            {{item.position}}
+          </div>
+          <div class="username">{{item.user?.name}}</div>
+        </div>
+        <div class="score">
+          <div>{{item.score}}</div>
+          <div>points</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

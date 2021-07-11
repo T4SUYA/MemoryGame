@@ -6,4 +6,5 @@ export interface ScoreModel {
   userId: String | undefined;
   score: number;
   gameType: number;
+  position?: number;
 }

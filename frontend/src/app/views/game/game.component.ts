@@ -25,6 +25,13 @@ enum GameStatus {
   OVER,
   WON,
   BETWEN_ROUNDS,
+  MODE_MENU,
+}
+
+enum NavigationStatus {
+  MAIN_MENU,
+  MENU_MODE,
+  GAME,
 }
 
 class ProgressiveModel {
@@ -55,6 +62,8 @@ export class GameComponent implements OnInit {
   canPlayAudio: boolean = true;
   actualPage: number = -1;
   hasReachedMaxCards: boolean = false;
+  showLeadboard: boolean = false;
+  navigationStatus: NavigationStatus = NavigationStatus.MAIN_MENU;
 
   constructor(private http: HttpClient, private authService: AuthService) {
     authService.getUser().subscribe((user) => {
@@ -96,7 +105,7 @@ export class GameComponent implements OnInit {
     this.data.push(...response.DATA);
     this.mountData(this.data, nextMaxCards);
     this.hasReachedMaxCards = response.DATA.length == 0;
-    return Promise.resolve(true);
+    return timer(500).subscribe(() => Promise.resolve(true));
   }
 
   async getData() {
@@ -160,10 +169,8 @@ export class GameComponent implements OnInit {
     }
     return array;
   }
-  async startGame(level: number) {
+  async startGame() {
     this.gameStatus = GameStatus.LOADING;
-    this.gameLevel = level;
-
     this.loadData(this.getMaxItems()).then((result) => {
       const timing = this.models.length * 135;
 
@@ -172,6 +179,7 @@ export class GameComponent implements OnInit {
         model.hasMatch = false;
       });
       this.gameStatus = GameStatus.STARTED;
+      this.navigationStatus = NavigationStatus.GAME;
       timer(500).subscribe(() => {
         this.cards?.startAnimation();
         timer(timing * 2).subscribe(() => {
@@ -212,19 +220,27 @@ export class GameComponent implements OnInit {
     let userPoints = this.gameLevel * 20 * this.timer.getTimeLeft() * 0.2;
     const new_score = await this.checkExistentScore(userPoints);
     if (this.gameLevel == 4) {
-      this.progressiveModel.points += Number(
-        (userPoints * this.progressiveModel.lastMaxItens * 0.1).toFixed(2)
+      this.progressiveModel.points += this.toDecimalPlaces(
+        userPoints * this.progressiveModel.lastMaxItens * 0.1
       );
 
       this.handleProgressiveGame();
       return;
     }
     this.cards?.stack();
-    this.user.points = userPoints;
+    this.user.points = this.toDecimalPlaces(userPoints);
     this.createOrUpdateScores(new_score);
 
     timer(this.models.length * 120).subscribe(
       () => (this.gameStatus = GameStatus.WON)
+    );
+  }
+
+  toDecimalPlaces(result: number, decimalPlaces: number = 2): number {
+    return Number(
+      Math.round(parseFloat(result + 'e' + decimalPlaces)) +
+        'e-' +
+        decimalPlaces
     );
   }
 
@@ -259,7 +275,7 @@ export class GameComponent implements OnInit {
       this.createOrUpdateScores(
         await this.checkExistentScore(this.progressiveModel.points)
       );
-      this.user.points = this.progressiveModel.points;
+      this.user.points = this.toDecimalPlaces(this.progressiveModel.points);
       return;
     }
     this.cards?.stack();
@@ -267,7 +283,7 @@ export class GameComponent implements OnInit {
     timer(timming).subscribe(
       () => (this.gameStatus = GameStatus.BETWEN_ROUNDS)
     );
-    timer(timming * 2.1).subscribe(() => this.startGame(this.gameLevel));
+    timer(timming * 2.1).subscribe(() => this.startGame());
   }
 
   onGameEndMessage() {
@@ -275,5 +291,21 @@ export class GameComponent implements OnInit {
       return 'Game Over ';
 
     return 'You Won';
+  }
+
+  onSelectDifficulty(event: number) {
+    this.gameLevel = event;
+    this.gameStatus = GameStatus.MODE_MENU;
+    this.navigationStatus = NavigationStatus.MENU_MODE;
+  }
+
+  onClickToNavigateBack() {
+    if (this.navigationStatus == NavigationStatus.MENU_MODE) {
+      this.navigationStatus = NavigationStatus.MAIN_MENU;
+      this.gameStatus = GameStatus.MENU;
+    } else if (this.navigationStatus == NavigationStatus.GAME) {
+      this.navigationStatus = NavigationStatus.MENU_MODE;
+      this.gameStatus = GameStatus.MODE_MENU;
+    }
   }
 }

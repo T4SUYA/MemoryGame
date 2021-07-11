@@ -1,0 +1,70 @@
+.start {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5em;
+  letter-spacing: 1px;
+  font-family: jungle;
+  color: #f8991b;
+
+  span:last-child {
+    cursor: pointer;
+    transition: all 0.5s ease;
+
+    &:hover {
+      filter: brightness(0.8);
+    }
+  }
+}
+.dif-btns {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  > button {
+    margin-right: 15px;
+    width: 80px;
+    height: 30px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    border: none;
+    transition: all 0.5s ease;
+    background-color: white;
+    cursor: pointer;
+    -webkit-box-shadow: 5px 5px 0px 0px #289fed, 10px 10px 0px 0px #5fb8ff,
+      15px 15px 0px 0px #a1d8ff, 20px 20px 0px 0px #cae6ff,
+      25px 25px 0px 0px #e1eeff, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: 5px 5px 0px 0px #289fed, 10px 10px 0px 0px #5fb8ff,
+      15px 15px 0px 0px #a1d8ff, 20px 20px 0px 0px #cae6ff,
+      25px 25px 0px 0px #e1eeff, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  }
+  > button:hover {
+    transform: scale(1.1);
+    filter: brightness(0.9);
+  }
+}
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #f09819 0%,
+    #edde5d 51%,
+    #f09819 100%
+  );
+}
+.btn-grad {
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}

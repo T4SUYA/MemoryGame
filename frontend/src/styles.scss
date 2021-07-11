@@ -86,3 +86,27 @@ body {
     opacity: 1;
   }
 }
+footer {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  color: #f8991b;
+  font-family: jungle;
+}
+a {
+  text-decoration: none;
+  color: #f8991b;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.underline {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+  width: 100%;
+  height: 2px;
+}

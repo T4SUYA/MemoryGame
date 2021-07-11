@@ -1,13 +1,23 @@
 {
-  "name": "memory-game-pw2",
+  "name": "memory-game",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
-    "start": "cd backend && ts-node lib/server.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "preinstall": "cd frontend && npm install && cd backend && npm install",
+    "build-frontend": "cd frontend && ng build",
+    "build-backend": "cd backend && ts-node lib/server.ts"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/T4SUYA/MemoryGame.git"
+  },
+  "bugs": {
+    "url": "https://github.com/T4SUYA/MemoryGame/issues"
+  },
+  "homepage": "https://github.com/T4SUYA/MemoryGame#readme",
+  "description": "A memory game build with NodeJS on the backend and Angular in the Frontend"
 }

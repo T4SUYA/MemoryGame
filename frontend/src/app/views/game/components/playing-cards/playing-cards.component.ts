@@ -166,7 +166,7 @@ export class PlayingCardsComponent implements OnInit {
   calculateCardSize(initialSize: number) {
     const calc = this.models.length / 4;
     const windWidth = window.innerWidth - 40;
-    const windHeight = window.innerHeight - 165;
+    const windHeight = window.innerHeight - 200;
     const sizeToValidate = initialSize + 10;
     const isMobile = window.innerWidth < 500;
 
