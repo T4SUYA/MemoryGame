@@ -2,8 +2,8 @@
   "name": "memory-game",
   "version": "1.0.0",
   "scripts": {
-    "build-frontend": "cd frontend && yarn && ng build",
-    "build-backend": "cd backend && yarn && ts-node lib/server.ts"
+    "frontend": "cd frontend && yarn && ng build",
+    "backend": "cd backend && yarn && ts-node lib/server.ts"
   },
   "keywords": [],
   "author": "",
