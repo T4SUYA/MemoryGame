@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  BACKEND_URL: 'http://localhost:5000/api',
+  BACKEND_URL: 'https://memory-game-jv.herokuapp.com/api',
   production: false,
 };
 
