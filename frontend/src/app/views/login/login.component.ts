@@ -31,14 +31,17 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.isAuthenticatedOrRefresh().then((result) => {
-      if (result) {
-        this.router.navigate(['game']);
-        return;
-      }
-      this.authService.logout();
-    });
-    this.returnUrl = this.activeRoute.snapshot.queryParams['returnUrl'] || '/';
+    this.returnUrl = this.activeRoute.snapshot.queryParams['returnUrl'];
+
+    if (this.returnUrl) {
+      this.authService.isAuthenticatedOrRefresh().then((result) => {
+        if (result) {
+          this.router.navigate([this.returnUrl]);
+          return;
+        }
+        this.authService.logout();
+      });
+    }
   }
 
   get formControls() {
