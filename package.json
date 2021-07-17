@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "frontend": "cd frontend && yarn && ng build",
-    "build": "cd backend && npm i",
-    "start": "cd backend &&  ts-node /lib/server.ts"
+    "build": "cd backend && npm i && npm i -g ts-node",
+    "start": "cd backend && ts-node /lib/server.ts"
   },
   "keywords": [],
   "author": "",
