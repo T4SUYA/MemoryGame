@@ -4,7 +4,7 @@
   "scripts": {
     "frontend": "cd frontend && yarn && ng build",
     "build": "cd backend && npm i && npm i -g ts-node",
-    "start": "ts-node /lib/server.ts"
+    "start": "ts-node lib/server.ts"
   },
   "keywords": [],
   "author": "",
