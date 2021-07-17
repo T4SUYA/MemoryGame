@@ -1,0 +1,1 @@
+web:cd backend && npm i && ts-node/lib/server.ts
