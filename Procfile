@@ -1,1 +1,1 @@
-web:cd backend && npm i && ts-node/lib/server.ts
+web:ts-node /backend/lib/server.ts
