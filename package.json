@@ -5,8 +5,7 @@
   "author": "João Victor R. Lourenço",
   "license": "ISC",
   "workspaces": [
-    "backend",
-    "frontend"
+    "backend"
   ],
   "scripts": {
     "frontend": "cd frontend && yarn && ng build",
