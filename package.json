@@ -5,10 +5,11 @@
   "author": "João Victor R. Lourenço",
   "license": "ISC",
   "workspaces": [
-    "backend"
+    "backend",
+    "frontend"
   ],
   "scripts": {
-    "frontend": "cd frontend && yarn && ng build",
+    "frontend": "yarn workspace frontend build",
     "build": "yarn workspace backend build",
     "start": "yarn workspace backend start"
   },
