@@ -11,7 +11,7 @@
   "scripts": {
     "frontend": "cd frontend && yarn && ng build",
     "build": "yarn workspace backend build",
-    "start": "yarn workspaces backend start"
+    "start": "yarn workspace backend start"
   },
   "repository": {
     "type": "git",
