@@ -1,5 +1,5 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "$schema": "../node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -36,12 +36,12 @@
               }
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss",
-              "node_modules/ngx-toastr/toastr.css"
+              "../node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
-              "./node_modules/@lottiefiles/lottie-player/dist/lottie-player.js"
+              "../node_modules/@lottiefiles/lottie-player/dist/lottie-player.js"
             ]
           },
           "configurations": {
@@ -103,12 +103,12 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss",
-              "node_modules/ngx-toastr/toastr.css"
+              "../node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
-              "./node_modules/@lottiefiles/lottie-player/dist/lottie-player.js"
+              "../node_modules/@lottiefiles/lottie-player/dist/lottie-player.js"
             ]
           }
         },

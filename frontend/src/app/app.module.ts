@@ -13,7 +13,6 @@ import { PlayingCardsComponent } from './views/game/components/playing-cards/pla
 import { TimerComponent } from './views/game/components/timer/timer.component';
 import { ModeSelectorComponent } from './views/game/components/mode-selector/mode-selector.component';
 import { ModeMenuComponent } from './views/game/components/mode-menu/mode-menu.component';
-import { AngularEmojisModule } from 'angular-emojis';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +29,6 @@ import { AngularEmojisModule } from 'angular-emojis';
     BrowserAnimationsModule,
     HttpClientModule,
     SharedModule,
-    AngularEmojisModule,
     ToastrModule.forRoot(),
   ],
 

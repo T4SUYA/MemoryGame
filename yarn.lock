@@ -2412,18 +2412,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"angular-emojis@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "angular-emojis@npm:1.0.0"
-  dependencies:
-    tslib: ^1.10.0
-  peerDependencies:
-    "@angular/common": ^9.1.11
-    "@angular/core": ^9.1.11
-  checksum: 03d24831988cda6de6b8ea76930f3f03e953c55f77dbdc8e8ebf57330cd0b54e76975954b30a6ece5bdef665afc0d79d21f0109acb0be16c7944ab05af6b3dec
-  languageName: node
-  linkType: hard
-
 "ansi-align@npm:^3.0.0":
   version: 3.0.0
   resolution: "ansi-align@npm:3.0.0"
@@ -5898,7 +5886,6 @@ __metadata:
     "@lottiefiles/lottie-player": ^0.5.1
     "@types/jasmine": ~3.6.0
     "@types/node": ^12.11.1
-    angular-emojis: ^1.0.0
     codelyzer: ^6.0.0
     jasmine-core: ~3.6.0
     jasmine-spec-reporter: ~5.0.0
