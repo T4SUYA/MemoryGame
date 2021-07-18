@@ -1,16 +1,18 @@
 {
   "name": "memory-game",
   "version": "1.0.0",
+  "keywords": [],
+  "author": "João Victor R. Lourenço",
+  "license": "ISC",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
   "scripts": {
     "frontend": "cd frontend && yarn && ng build",
-    "build": "cd backend && npm i && npm i -g ts-node",
-    "start": "ts-node backend/lib/server.ts"
+    "build": "yarn workspace backend build",
+    "start": "yarn workspaces backend start"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {},
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/T4SUYA/MemoryGame.git"

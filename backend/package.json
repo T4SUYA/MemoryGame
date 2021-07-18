@@ -1,12 +1,12 @@
 {
-  "name": "memory-game-jv",
+  "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node lib/server.ts",
-    "dev": "PORT=5000 nodemon --exec ts-node lib/server.ts --watch lib"
+    "dev": "PORT=5000 nodemon --exec ts-node lib/server.ts --watch lib",
+    "build": "tsc ",
+    "start": "node build/server.js"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +14,7 @@
   "dependencies": {
     "@hapi/joi": "^17.1.1",
     "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.12",
     "@types/express": "^4.17.11",
     "@types/hapi__joi": "^17.1.6",
     "@types/imagemin": "^7.0.0",
@@ -29,6 +30,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "image-to-base64": "^2.1.1",
+    "imagemin": "^7.0.1",
     "imagemin-mozjpeg": "^9.0.0",
     "is-jpg": "^2.0.0",
     "jsonwebtoken": "^8.5.1",
@@ -40,7 +42,6 @@
     "socket.io": "^4.1.2",
     "ts-node": "^9.1.1",
     "ts-node-dev": "^1.1.6",
-    "typescript": "^4.2.4",
-    "imagemin": "^7.0.1"
+    "typescript": "^4.2.4"
   }
 }
