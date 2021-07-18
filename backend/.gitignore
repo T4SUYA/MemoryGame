@@ -3,8 +3,8 @@ build
 
 # Yarn
 .yarn/*
-.yarn/cache
-.yarn/releases
-.yarn/plugins
-.yarn/sdks
-.yarn/versions
+!.yarn/cache
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
