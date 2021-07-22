@@ -8,11 +8,11 @@ You can see the game in action [here](https://memorygamejv.netlify.app).
 
 This is a handcrafted MemoryGame built with Angular, NodeJS and MongoDB.
 
-- Sign In / Sign Up
+- Sign In / Sign Up  
   ![main menu](https://imgur.com/mSR3jrg.gif)
-- Main menu
-  ![main menu](https://imgur.com/JmpkVed.png)
-- Leaderboard
+- Main menu  
+  ![main menu](https://imgur.com/1avRmHQ.gif)
+- Leaderboard  
   ![leaderboard](https://imgur.com/OWeqodn.gif)
-- Game
+- Game  
   ![game](https://imgur.com/hlDxfWp.gif)
