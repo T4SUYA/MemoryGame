@@ -378,6 +378,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@angular/service-worker@npm:~11.0.4":
+  version: 11.0.9
+  resolution: "@angular/service-worker@npm:11.0.9"
+  dependencies:
+    tslib: ^2.0.0
+  peerDependencies:
+    "@angular/common": 11.0.9
+    "@angular/core": 11.0.9
+  bin:
+    ngsw-config: ngsw-config.js
+  checksum: ed17abfcd6edaeb4dc24d05598f3107fb1839c055efe590aa8a71dcf2ea95534f3f14952aad2db6e753371cb32f4ebf4ce70d6a09343a9c77e9d95699b533842
+  languageName: node
+  linkType: hard
+
 "@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.10.4, @babel/code-frame@npm:^7.14.5":
   version: 7.14.5
   resolution: "@babel/code-frame@npm:7.14.5"
@@ -5883,6 +5897,7 @@ __metadata:
     "@angular/platform-browser": ~11.0.4
     "@angular/platform-browser-dynamic": ~11.0.4
     "@angular/router": ~11.0.4
+    "@angular/service-worker": ~11.0.4
     "@lottiefiles/lottie-player": ^0.5.1
     "@types/jasmine": ~3.6.0
     "@types/node": ^12.11.1
