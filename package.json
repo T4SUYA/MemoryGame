@@ -11,7 +11,8 @@
   "scripts": {
     "build": "yarn workspaces foreach run build",
     "start": "yarn workspace backend start",
-    "frontend": "yarn workspace frontend build"
+    "frontend": "yarn workspace frontend build",
+    "dev": "concurrently \"yarn workspace frontend start\" \" yarn workspace backend dev\""
   },
   "repository": {
     "type": "git",

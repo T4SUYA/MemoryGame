@@ -1,4 +1,4 @@
 export const environment = {
-  BACKEND_URL: 'https://memory-game-jv.herokuapp.com/api',
+  BACKEND_URL: 'https://memory-gamejv.herokuapp.com/api',
   production: true,
 };

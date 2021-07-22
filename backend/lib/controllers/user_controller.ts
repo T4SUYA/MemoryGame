@@ -56,7 +56,9 @@ export class UserController {
     });
 
     if (nicknameExists)
-      return res.status(400).send("This Nickname already exists");
+      return res
+        .status(400)
+        .json({ details: [{ message: "Nickname already in use" }] });
 
     const salt = await bcrypt.genSalt();
     const hashedPassword = await bcrypt.hash(req.body.password, salt);

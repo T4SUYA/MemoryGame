@@ -14,7 +14,7 @@ export default class ScoreService {
   public async filterScore(query: any) {
     return await scores
       .find(query)
-      .limit(3)
+      .limit(10)
       .populate("user")
       .sort({ score: -1 })
       .exec();

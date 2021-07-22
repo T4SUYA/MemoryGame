@@ -197,19 +197,12 @@ export class GameComponent implements OnInit {
   async onTimerCompleted() {
     this.cards?.stack();
     if (this.gameLevel == 4) {
-      let userPoints = this.gameLevel * 20 * this.timer.getTimeLeft() * 0.2;
-      this.progressiveModel.points = Number(
-        (
-          this.progressiveModel.points +
-          userPoints * this.progressiveModel.lastMaxItens * 0.1
-        ).toFixed(2)
-      );
+      this.user.points = this.toDecimalPlaces(this.progressiveModel.points);
       this.createOrUpdateScores(
         await this.checkExistentScore(this.progressiveModel.points)
       );
-      this.user.points = userPoints;
+      this.progressiveModel = new ProgressiveModel();
     }
-
     timer(this.models.length * 150).subscribe(
       () => (this.gameStatus = GameStatus.OVER)
     );
@@ -217,16 +210,18 @@ export class GameComponent implements OnInit {
 
   async onGameCompleted() {
     this.timer?.stop();
-    let userPoints = this.gameLevel * 20 * this.timer.getTimeLeft() * 0.2;
-    const new_score = await this.checkExistentScore(userPoints);
+    let userPoints = this.toDecimalPlaces(
+      this.gameLevel * 20 * this.timer.getTimeLeft() * 0.2
+    );
     if (this.gameLevel == 4) {
       this.progressiveModel.points += this.toDecimalPlaces(
-        userPoints * this.progressiveModel.lastMaxItens * 0.1
+        userPoints * this.progressiveModel.lastMaxItens * 0.15
       );
 
       this.handleProgressiveGame();
       return;
     }
+    const new_score = await this.checkExistentScore(userPoints);
     this.cards?.stack();
     this.user.points = this.toDecimalPlaces(userPoints);
     this.createOrUpdateScores(new_score);
@@ -236,12 +231,8 @@ export class GameComponent implements OnInit {
     );
   }
 
-  toDecimalPlaces(result: number, decimalPlaces: number = 2): number {
-    return Number(
-      Math.round(parseFloat(result + 'e' + decimalPlaces)) +
-        'e-' +
-        decimalPlaces
-    );
+  toDecimalPlaces(result: number): number {
+    return Number(result.toFixed(2));
   }
 
   createOrUpdateScores(score: ScoreModel) {
@@ -270,12 +261,12 @@ export class GameComponent implements OnInit {
   }
 
   async handleProgressiveGame() {
+    this.user.points = this.toDecimalPlaces(this.progressiveModel.points);
+    this.createOrUpdateScores(
+      await this.checkExistentScore(this.progressiveModel.points)
+    );
     if (this.hasReachedMaxCards) {
       this.gameStatus = GameStatus.WON;
-      this.createOrUpdateScores(
-        await this.checkExistentScore(this.progressiveModel.points)
-      );
-      this.user.points = this.toDecimalPlaces(this.progressiveModel.points);
       return;
     }
     this.cards?.stack();

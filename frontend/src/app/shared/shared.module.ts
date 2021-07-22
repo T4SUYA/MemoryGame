@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LottiePlayerComponent } from './components/lottie-player/lottie-player.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRippleModule } from '@angular/material/core';
@@ -13,9 +12,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
-import { AuthService } from './services/auth.service';
 import { LeadboardComponent } from './components/leadboard/leadboard.component';
+import { LottiePlayerComponent } from './components/lottie-player/lottie-player.component';
+import { AuthService } from './services/auth.service';
 
 const modules = [FormsModule, ReactiveFormsModule];
 const materialModules = [

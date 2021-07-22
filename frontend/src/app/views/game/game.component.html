@@ -22,7 +22,7 @@
     [models]="models" #cards class="fade-in" *ngIf="gameStatus == 2"></app-playing-cards>
 
   <h1 class="start slide-in-fwd-center prog-pts" *ngIf="gameLevel == 4 && gameStatus > 1">Score:
-    {{progressiveModel.points}}</h1>
+    {{toDecimalPlaces(progressiveModel.points)}}</h1>
   <app-timer *ngIf="gameStatus == 2 " (onTimerComplete)="onTimerCompleted()" class="fade-in" #timer>
   </app-timer>
 
